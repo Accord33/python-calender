@@ -34,6 +34,8 @@ class CalendarApp(tk.Tk):
         self.calendar_frame.pack(pady=10)
 
     def draw_calendar(self):
+        # 週の始まりを日曜日に固定
+        calendar.setfirstweekday(calendar.SUNDAY)
         # 既存カレンダー消去
         for widget in self.calendar_frame.winfo_children():
             widget.destroy()
