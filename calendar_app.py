@@ -36,8 +36,7 @@ class CalendarApp(tk.Tk):
                 # 本日を強調表示
                 label_kwargs = {"text": text, "width": 5, "anchor": 'center', "relief": 'ridge'}
                 if date == today:
-                    # PEP 8に従い、TODAY_HIGHLIGHT_COLOR = '#ffeb3b' のような定数を定義することを検討してください
-                    label_kwargs["background"] = '#ffeb3b' # または TODAY_HIGHLIGHT_COLOR を使用
+                    label_kwargs["background"] = TODAY_HIGHLIGHT_COLOR
                 date_lbl = ttk.Label(self.calendar_frame, **label_kwargs)
                 date_lbl.grid(row=row_idx+1, column=col_idx, padx=2, pady=2)
 
