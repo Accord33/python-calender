@@ -53,7 +53,8 @@ class CalendarApp(tk.Tk):
                 else:
                     text = str(date)
                 label_kwargs = {"text": text, "width": 5, "anchor": 'center', "relief": 'ridge'}
-                if (self.current_year, self.current_month, date) == (datetime.now().year, datetime.now().month, self.today):
+                _now = datetime.now() # Get current datetime once for this check
+                if (self.current_year, self.current_month, date) == (_now.year, _now.month, _now.day):
                     label_kwargs["background"] = TODAY_HIGHLIGHT_COLOR
                 date_lbl = ttk.Label(self.calendar_frame, **label_kwargs)
                 date_lbl.grid(row=row_idx+1, column=col_idx, padx=2, pady=2)
