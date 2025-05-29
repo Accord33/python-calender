@@ -1,0 +1,9 @@
+[project]
+name = "python-calender"
+version = "0.1.0"
+description = "A calendar app using Python and tkinter."
+authors = []
+requires-python = ">=3.8"
+
+[tool.uv]
+# 依存パッケージはここに追加
