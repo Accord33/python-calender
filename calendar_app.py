@@ -15,17 +15,30 @@ class CalendarApp(tk.Tk):
         self.calendar_frame = ttk.Frame(self)
         self.calendar_frame.pack(pady=20)
 
+        # 日付情報の取得
+        now = datetime.now()
+        year, month, today = now.year, now.month, now.day
+        month_calendar = calendar.monthcalendar(year, month)
+
         # 曜日ラベル（日～土）
         days = ['日', '月', '火', '水', '木', '金', '土']
         for idx, day in enumerate(days):
             lbl = ttk.Label(self.calendar_frame, text=day, width=5, anchor='center', font=("Arial", 10, "bold"))
             lbl.grid(row=0, column=idx, padx=2, pady=2)
 
-        # 日付表示エリア（空のまま）
-        for row in range(1, 7):
-            for col in range(7):
-                date_lbl = ttk.Label(self.calendar_frame, text="", width=5, anchor='center', relief='ridge')
-                date_lbl.grid(row=row, column=col, padx=2, pady=2)
+        # 日付表示エリア
+        for row_idx, week in enumerate(month_calendar):
+            for col_idx, date in enumerate(week):
+                if date == 0:
+                    text = ""
+                else:
+                    text = str(date)
+                # 本日を強調表示
+                label_kwargs = {"text": text, "width": 5, "anchor": 'center', "relief": 'ridge'}
+                if date == today:
+                    label_kwargs["background"] = TODAY_HIGHLIGHT_COLOR
+                date_lbl = ttk.Label(self.calendar_frame, **label_kwargs)
+                date_lbl.grid(row=row_idx+1, column=col_idx, padx=2, pady=2)
 
 if __name__ == "__main__":
     app = CalendarApp()
