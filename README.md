@@ -13,15 +13,7 @@ Python（tkinter）で作成したシンプルなカレンダーアプリケー�
 - datetime（標準ライブラリ）
 
 ## セットアップ方法
-1. [uv](https://github.com/astral-sh/uv) をインストール（未導入の場合）:
-   ```bash
-   pip install uv
-   ```
-2. 依存パッケージのインストール:
-   ```bash
-   uv pip install -r requirements.txt
-   ```
-   ※ 本アプリは標準ライブラリのみで動作しますが、追加パッケージが必要な場合は `pyproject.toml` に記載してください。
+本アプリは標準ライブラリのみで動作するため、追加のパッケージインストールは不要です。
 
 ## 実行方法
 ```bash
